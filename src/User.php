@@ -4,37 +4,23 @@ namespace App;
 
 class User
 {
-    private $student = FALSE;
-    private $name;
-    private $phoneNumber;
-    private $email;
-    private $languageCh = TRUE;
+    private $id;
+    private $language; // zhtw | enus
     
-    //Constructor?
-    public function register(bool $student, $name, $phoneNumber, $email, $languageCh)
+    //Construct?
+    public function __construct($id, $language)
     { 
-        $this->student = $student;
-        $this->name = $name;
-        $this->phoneNumber = $phoneNumber;
-        $this->email = $email;
-        $this->languageCh = $languageCh;
-        if ($this->student)
-        {
-            $this = new Student(); 
-        }
+        $this->id = $id;
+        $this->language = $language;
     }
-}
 
-
-class Student extends User
-{
-    private $course = array()
-    public function bookCourse(array $course)
+    public function getLanguage()
     {
-        $this->course[] = $course;
+        return $this->language;
     }
-    public function cancelCourse(array $course)
+
+    public function getId()
     {
-        $this->course = array_diff($this->course, $course);
+        return $this->id;
     }
 }
