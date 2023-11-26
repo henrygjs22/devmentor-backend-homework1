@@ -4,7 +4,7 @@ namespace App;
 
 class Zhtw
 {
-    public function getContents(): array
+    public function getMessage(): array
     {
         return [
             "registerSuccessful" => " 註冊成功 ",

@@ -4,17 +4,27 @@ namespace App;
 
 class RegisterSuccessfulEvent extends Event
 {
-    public function getContent(User $user)
+    public function __construct()
     {
-        // $lang = $user->getLanguage();
-        // $path = './' . $lang . '.json';
-        // echo $path . PHP_EOL;
-        // echo file_get_contents($path);
-        // $contents = json_decode(file_get_contents($path), true);
-
-        $lang = $user->getLanguage();
-        $contents = $lang->getContents();
-
-        return $contents['registerSuccessful'];
+        $this->setEventName("registerSuccessful");
+        $this->notifyChannels = [new EmailNotifyChannel(), new SMSNotifyChannel()];
+        foreach ($this->notifyChannels as $notifyChannel) {
+            $this->setNotifyChannelNames($notifyChannel->getMyName());
+        }
     }
+     
+    // //Put in Event?
+    // public function getContent(User $user)
+    // {
+    //     // $lang = $user->getLanguage();
+    //     // $path = './' . $lang . '.json';
+    //     // echo $path . PHP_EOL;s($path);
+    //     // $contents = json_decode(file_get_contents($path), true);
+
+    //     $lang = $user->getLanguage(); //Object(Zhtw)
+    //     $contents = $lang->getMessage(); //array
+
+    //     return $contents['registerSuccessful'];
+    //     // echo file_get_content
+    // }
 }

@@ -7,7 +7,6 @@ class User
     private $id;
     private $language; // zhtw | enus
     
-    //Construct?
     public function __construct($id, $language)
     { 
         $this->id = $id;
