@@ -6,11 +6,7 @@ class RegisterSuccessfulEvent extends Event
 {
     public function __construct()
     {
-        $this->setEventName("registerSuccessful");
-        $this->notifyChannels = [new EmailNotifyChannel(), new SMSNotifyChannel()];
-        foreach ($this->notifyChannels as $notifyChannel) {
-            $this->setNotifyChannelNames($notifyChannel->getMyName());
-        }
+        $this->setNotifyChannels([new EmailNotifyChannel(), new SMSNotifyChannel()]);
     }
      
     // //Put in Event?

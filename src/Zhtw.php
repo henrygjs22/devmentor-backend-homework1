@@ -7,9 +7,9 @@ class Zhtw
     public function getMessage(): array
     {
         return [
-            "registerSuccessful" => " 註冊成功 ",
-            "bookCourse" => " 預約課程 ",
-            "cancelCourse" => " 取消課程 "
+            "RegisterSuccessfulEvent" => " 註冊成功 ",
+            "BookCourseEvent" => " 預約課程 ",
+            "CancelCourseEvent" => " 取消課程 "
         ];
     }
 }
