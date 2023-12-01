@@ -17,7 +17,9 @@ class Event
     {
         $lang = $user->getLanguage(); //Object(Zhtw)
         $contents = $lang->getMessage(); //array
-        $key = substr(get_class($this), 4);
+        $classname = explode('\\', get_class($this));
+        $key = end($classname);
+
         return $contents[$key];
     }
 
