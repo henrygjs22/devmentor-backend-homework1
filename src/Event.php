@@ -15,20 +15,17 @@ class Event
     
     public function getContent(User $user)
     {
-        $lang = $user->getLanguage(); //Object(Zhtw)
-        $contents = $lang->getMessage(); //array
-        $classname = explode('\\', get_class($this));
-        $key = end($classname);
-
-        return $contents[$key];
+        $lang = $user->getLanguage(); //language object
+        $contents = $lang->getMessage(); //array  
+        $classname = get_class($this);
+        return $contents[$classname];
     }
 
     public function dispatch(User $user)
     {
         $msg = 'No.' . $user->getId() . $this->getContent($user);
         foreach ($this->notifyChannels as $notifyChannel) {           
-            $notifyChannelName = $notifyChannel->getMyName();
-            $notifyChannel->notify($notifyChannelName . $msg . PHP_EOL);
+            $notifyChannel->notify($msg . PHP_EOL);
         }
     }
 }

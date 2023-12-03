@@ -4,8 +4,8 @@ namespace App;
 
 class CancelCourseEvent extends Event
 {
-    public function __construct()
+    public function __construct(array $notifyChannels)
     {
-        $this->setNotifyChannels([new EmailNotifyChannel(), new TelegramNotifyChannel()]);
-    }
+        $this->setNotifyChannels($notifyChannels);
+    }  
 }

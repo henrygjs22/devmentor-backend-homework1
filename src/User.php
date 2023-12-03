@@ -5,7 +5,7 @@ namespace App;
 class User
 {
     private $id;
-    private $language; // zhtw | enus
+    private $language; // language class
     
     public function __construct($id, $language)
     { 

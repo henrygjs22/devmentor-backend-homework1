@@ -4,8 +4,8 @@ namespace App;
 
 class TelegramNotifyChannel extends NotifyChannel
 {
-    public function __construct()
+    public function notify(string $message)
     {
-        $this->myName = '[Telegram] ';
+        echo '[Telegram] ' . $message;
     }
 }
