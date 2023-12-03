@@ -6,10 +6,11 @@ class Enus
 {
     public function getMessage(): array
     {
+        
         return [
-            "RegisterSuccessfulEvent" => " Register successful ",
-            "BookCourseEvent" => " Book course ",
-            "CancelCourseEvent" => " Cancel course "
+            RegisterSuccessfulEvent::class => " Register successful",
+            BookCourseEvent::class => " Book course",
+            CancelCourseEvent::class => " Cancel course"
         ];
     }
 }

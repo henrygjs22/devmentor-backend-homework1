@@ -4,8 +4,8 @@ namespace App;
 
 class SMSNotifyChannel extends NotifyChannel
 {
-    public function __construct()
+    public function notify(string $message)
     {
-        $this->myName = '[SMS] ';
+        echo '[SMS] ' . $message;
     }
 }
