@@ -9,6 +9,5 @@ class HelloWorld
     public function say()
     {
         return 'Hello, world';
-        $event = new TestEvent();
     }
 }

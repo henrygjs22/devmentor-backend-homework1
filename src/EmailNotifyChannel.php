@@ -4,9 +4,8 @@ namespace App;
 
 class EmailNotifyChannel extends NotifyChannel
 {
-    //Why can't just assign?
-    public function __construct()
+    public function notify(string $message)
     {
-        $this->myName = '[Email] ';
+        echo '[Email] ' . $message;
     }
 }

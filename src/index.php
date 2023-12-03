@@ -31,9 +31,9 @@ $user3 = new User(3, new Enus());
 // $event = app(RegisterSuccessfulEvent::class);
 // $event = new RegisterSuccessfulEvent();
 
-// $registerSuccessful = new RegisterSuccessfulEvent([new EmailNotifyChannel(), new TelegramNotifyChannel()]);
+$registerSuccessful = new RegisterSuccessfulEvent([new EmailNotifyChannel(), new SMSNotifyChannel()]);
 $bookCourse = new BookCourseEvent([new EmailNotifyChannel(), new TelegramNotifyChannel()]);
-// $cancelCourse = new CancelCourseEvent([new EmailNotifyChannel(), new TelegramNotifyChannel()]);
-// $registerSuccessful->dispatch($user1);
+$cancelCourse = new CancelCourseEvent([new EmailNotifyChannel(), new TelegramNotifyChannel()]);
+$registerSuccessful->dispatch($user1);
 $bookCourse->dispatch($user2);
-// $cancelCourse->dispatch($user3);
+$cancelCourse->dispatch($user3);
