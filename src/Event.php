@@ -23,9 +23,11 @@ class Event
 
     public function dispatch(User $user)
     {
+        $allmessage = '';
         $msg = 'No.' . $user->getId() . $this->getContent($user);
         foreach ($this->notifyChannels as $notifyChannel) {           
-            $notifyChannel->notify($msg . PHP_EOL);
+            $allmessage .= $notifyChannel->notify($msg . PHP_EOL);
         }
+        return $allmessage;
     }
 }
