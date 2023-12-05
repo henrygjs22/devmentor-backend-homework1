@@ -7,8 +7,8 @@ use DateTime;
 class Holiday
 {
     public function say()
-    {
-        $date = new DateTime();
+    {       
+        $date = $this->getDateTime();
         $isXmas = '12-25' === $date->format('m-d');
 
         if ($isXmas)
@@ -18,7 +18,10 @@ class Holiday
         else 
         {
             return "Today is not X'mas";
-        }
-  
+        }  
+    }
+    protected function getDateTime()
+    {
+        return new DateTime();
     }
 }
